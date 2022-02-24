@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Vote Routes
+
+Route::get('/vote/create', "\App\Http\Controllers\VoteController@index")->name('vote.create');
+Route::post("/vote/create", "\App\Http\Controllers\VoteController@store")->name('vote.store');

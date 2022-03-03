@@ -23,9 +23,29 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get("/api", function () {
+    return [1, 2, array("test" => 'test')];
+});
+
 
 
 // Vote Routes
 
 Route::get('/vote/create', "\App\Http\Controllers\VoteController@index")->name('vote.create');
 Route::post("/vote/create", "\App\Http\Controllers\VoteController@store")->name('vote.store');
+
+Route::get("/vote/results", function () {
+    $data['votes'] = DB::table('votes')->get();
+
+    // dd($data);
+    // return response()->json($data);
+    // return $data;
+
+    return view("vote.results", ['data' => $data]);
+})->name('vote.results');
+
+Route::get('/vote/show/{id}', function ($id) {
+    $vote = DB::table('votes')->find($id);
+    // dd($vote);
+    return view('vote.single', ['vote' => $vote]);
+});

@@ -37,7 +37,8 @@ class VoteController extends Controller
 
         $vote->save();
 
-        return view('vote.create');
+        // return view('vote.results');
+        return redirect()->route('vote.results');
     }
 
     public function index()

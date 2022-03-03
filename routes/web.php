@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("/policy", "\App\Http\Controllers\HomeController@policy")->name("policy");
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 // Vote Routes
 

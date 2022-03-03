@@ -1,0 +1,1 @@
+alert("By using this webapp, you agree to the terms of the ipsum")

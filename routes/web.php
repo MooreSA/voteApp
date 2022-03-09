@@ -36,6 +36,8 @@ Route::post("/vote/create", "\App\Http\Controllers\VoteController@store")->name(
 
 Route::get("/vote/results", function () {
     $data['votes'] = DB::table('votes')->get();
+    $data['yesVotes'] = DB::table('votes')->where('vote', 1)->count('vote');
+    $data['noVotes'] = DB::table('votes')->where('vote', 0)->count('vote');
 
     // dd($data);
     // return response()->json($data);
@@ -49,3 +51,7 @@ Route::get('/vote/show/{id}', function ($id) {
     // dd($vote);
     return view('vote.single', ['vote' => $vote]);
 });
+
+// Register the resource
+// Do not use the show/create/store routes
+Route::resource('users', 'App\Http\Controllers\Admin\UserController', ['except' => ['show', 'create', 'store']]);

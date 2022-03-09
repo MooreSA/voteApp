@@ -5,6 +5,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <!-- TODO: Wouldn't it make sense to move this table to a Vue Component as well? -->
+                <example-component></example-component>
+                {{-- <chart-component :yesvotes="{!! json_encode($data['yesVotes']) !!}" :novotes="'{{ $data['noVotes'] }}'"> --}}
+                <chart-component :yesvotes="{!! $data['yesVotes'] !!}" :novotes="'{{ $data['noVotes'] }}'">
+
+                </chart-component>
                 <div class="card mb-3">
                     <div class="card-header">Votes</div>
                     <div class="card-body">

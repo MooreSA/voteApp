@@ -66,12 +66,12 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     {{-- Added User Management Link --}}
                                     <!-- TODO: Should we show this link to everyone? Or should we use an auth gate?-->
-                                    <a href="{{ route('users.index') }}" class="dropdown-item">
+                                    <a href="{{ route('admin.users.index') }}" class="dropdown-item">
                                         User Management
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                         document.getElementById('logout-form').submit();">
+                                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

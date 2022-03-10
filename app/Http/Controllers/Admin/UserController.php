@@ -35,7 +35,7 @@ class UserController extends Controller
             'roles' => $roles
         ]);
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -54,7 +54,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -66,6 +66,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 }

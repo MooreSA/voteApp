@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Edit User: {{ $user->name }}</div>
                     <div class="card-body">
-                        <form action="{{ route('users.update', $user) }}" method="post">
+                        <form action="{{ route('admin.users.update', $user) }}" method="post">
                             {{ method_field('put') }}
                             @csrf
                             <div class="form-group row">

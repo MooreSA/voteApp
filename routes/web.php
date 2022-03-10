@@ -52,6 +52,10 @@ Route::get('/vote/show/{id}', function ($id) {
     return view('vote.single', ['vote' => $vote]);
 });
 
-// Register the resource
-// Do not use the show/create/store routes
-Route::resource('users', 'App\Http\Controllers\Admin\UserController', ['except' => ['show', 'create', 'store']]);
+// Add routes for User resource controller
+// First we add an admin prefix and auth middleware to check for the role.
+// the middle ware will enforce the user to be have roles to manage users.
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function () {
+    // Now we add the routes
+    Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store']]);
+});
